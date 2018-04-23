@@ -14,19 +14,10 @@ Otherwise, If the middle digit is a 0 and the last digit is a 1, press the first
 Otherwise, if the number is divisible by 3, press the fourth digit.
 Otherwise, press the second digit.
 
-Binary - most similar to simple wires
-The user is given a series of between 4 and 6 basic binary numbers, 1s or 0s. Expert’s book has a guide on interpreting binary for those who don’t know, and for which of the digits to press. 
-
-4 digits (<16):
-If the value is prime, press the third digit.
-Otherwise, if the value is odd, press the second digit.
-Otherwise, If the second digit is a 1, press the fourth digit.
-Otherwise, press the first digit. 
-
-5 digits (<31):
-If the binary number is the same forwards as it is backwards, Press the third digit.
-Otherwise, if the value is between 13 and 19, press the second digit. 
-Otherwise, If the middle digit is a 0 and the last digit is a 1, press the first digit. 
-Otherwise, if the number is divisible by 3, press the fourth digit.
-Otherwise, press the second digit 
+6 digits (<64):
+If the value is in the 20s or 40s, press the sixth digit.
+Otherwise, if the binary number has three 0s in a row, press the second digit
+Otherwise, if the value is divisible by 5, press the first digit.
+Otherwise, if the number is even, press the fifth digit.
+Otherwise, Press the third digit. 
 
