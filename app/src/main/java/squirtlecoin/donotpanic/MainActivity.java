@@ -1,17 +1,20 @@
 package squirtlecoin.donotpanic;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.database.sqlite.SQLiteOpenHelper;
 
 public class MainActivity extends AppCompatActivity {
 
     // Fields
 
     EditText inputText;
-    DBHelper db;
+    DBHelper dbHelper;
+    SQLiteDatabase db;
 
     // Constructors
 
@@ -19,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        db = new DBHelper(this);
-        db.getWritableDatabase();
+        dbHelper = new DBHelper(this);
+        db = dbHelper.getWritableDatabase();
     }
 
     // Functions
@@ -30,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         String name = inputText.getText().toString();
         inputText = findViewById(R.id.password);
         String pw = inputText.getText().toString();
+        if(dbHelper.playerExists(db, name, pw)){
+            // Login
+        }
+        else{
+            // Reject Login Attempt
+        }
     }
 
     public void addUser(View view) {
@@ -38,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
         inputText = findViewById(R.id.password);
         String pw = inputText.getText().toString();
         int id = 3;
-        User user = new User(id, name, pw);
+        if(!dbHelper.playerExists(db, name)){
+            ContentValues values = new ContentValues();
+            values.put(DBContract.PlayerEntry.COLUMN_PLAYERID, id);
+            values.put(DBContract.PlayerEntry.COLUMN_USERNAME, name);
+            values.put(DBContract.PlayerEntry.COLUMN_PASSWORD, pw);
+            values.put(DBContract.PlayerEntry.COLUMN_PLAYTIME, 0);
+            values.put(DBContract.PlayerEntry.COLUMN_TOPSCORE, 0);
+            db.insert(DBContract.PlayerEntry.TABLE_NAME, null, values);
+        }
+
     }
+
+
 }
