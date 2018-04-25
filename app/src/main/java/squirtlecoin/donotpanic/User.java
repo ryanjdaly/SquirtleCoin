@@ -20,7 +20,7 @@ public class User {
         this.password = pw;
     }
 
-    // Properties
+    // Functions
 
     public void setID(int id) {
         this.userID = id;
