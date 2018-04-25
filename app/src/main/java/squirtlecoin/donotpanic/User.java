@@ -6,48 +6,36 @@ package squirtlecoin.donotpanic;
 
 public class User {
 
-    // fields
+    // Fields
 
     private int userID;
-
     private String userName;
+    private String password;
 
-    // constructors
+    // Constructors
 
-    public User() {}
-
-    public User(int id, String username) {
-
+    public User(int id, String username, String pw) {
         this.userID = id;
-
         this.userName = username;
-
+        this.password = pw;
     }
 
-    // properties
+    // Properties
 
     public void setID(int id) {
-
         this.userID = id;
-
     }
 
     public int getID() {
-
         return this.userID;
-
     }
 
     public void setUserName(String username) {
-
         this.userName = username;
-
     }
 
     public String getStudentName() {
-
         return this.userName;
-
     }
 
 }
