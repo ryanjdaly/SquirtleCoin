@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             Toast toast = Toast.makeText(getApplicationContext(), "Username already exists!", Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 }
