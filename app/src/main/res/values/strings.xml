@@ -12,4 +12,46 @@
     <string name="green">Green</string>
     <string name="brown">Brown</string>
     <string name="user_type">V Speaker  Diffuser V</string>
+    <string name="user_win">Bomb Defused!</string>
+
+    <string name="instructions">You are given a 5 digit number, examine your number and perform the task that corresponds with your number.
+Here are instructions on how to convert your binary number in to decimal form.
+
+1. Write down the binary number.
+2. List the powers of two from right to left.
+3. Write the digits of the binary number below their corresponding powers.
+4. Connect the digits in the binary number with their corresponding powers.
+5. Write down the final value of each power of two.
+6. Add the final values.
+7. Write the answer along with its base subscript.
+
+
+Set 1
+1. If your number is palindromic (the same forward as it is backwards) cut the brown wire, move to set 2.
+2. Otherwise, if the sum of the digits in your number is greater than 3 cut the red wire, move to set 2.
+3. Otherwise, if your number contains the digit has only one 0 cut the green wire, move to set 2.
+4. Otherwise, if the your number in decimal form is greater than 15, cut the yellow wire, move to set 2.
+5. Otherwise, cut the blue wire, move to set 2.
+
+Set 2
+1. If your number in DECIMALform is less than 10, cut the green wire, move to set 3.
+2. Otherwise, if the sum the digits in your BINARY number is greater than 3, cut the red wire, move to set 3.
+3. Otherwise, if the sum of the digits of your DECIMAL number is greater than 6, cut the brown wire, move to set 3.
+4. Otherwise, if the sum of the digits in your BINARY number is even, cut the yellow wire, move to set 3.
+5. Otherwise, move immediately to set 3.
+
+Set 3
+1. If the sum of the digits in your DECIMAL number divided by the sum of the digits in your BINARY number is not a whole number, cut the red wire, move to set 4.
+2. Otherwise, if your BINARY number backwards has a greater DECIMAL value than the original, cut the green wire, move to set 4.
+3. Otherwise, if the sum of the digits in our BINARY number multiplied by your DECIMAL number is odd, cut the brown wire, move to set 4.
+4. Otherwise, if the sum of the digits in your DECIMAL number divided by the sum of the digits in your BINARY number is odd, cut the yellow wire, movee to set 4.
+5. Otherwise, move immediately to set 4.
+
+Set 4
+1. If you changed all of your number's 1's to 0's and 0's to 1's in your BINARY number and found that number's DECIMAL value, is it greater than 15? If so cut the brown wire.
+2. Otherwise, if your DECIMAL number divided by the sum of your BINARY number is greater than the same of both your BINARY and DECIMAL numer's digits, cut the green wire.
+3. Otherwise, if your DECIMAL number raised to the power of the sum of digits in your BINARY number is greater than 50, cut the red wire.
+4. Otherwise, if the sum of digits in your BINARY number is less than 5, cut the blue wire.
+5. Otherwise, cut the yellow wire.
+</string>
 </resources>

@@ -1,5 +1,6 @@
 package squirtlecoin.donotpanic;
 
+import android.content.Intent;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.content.ContentValues;
@@ -21,12 +22,36 @@ public class GameActivity extends AppCompatActivity{
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.game2);
+                startActivity(new Intent(GameActivity.this, GameActivity2.class));
             }
         });
 
         Button btn2 = (Button)findViewById(R.id.button_red);
         btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.gameover);
+            }
+        });
+
+        Button btn3 = (Button)findViewById(R.id.button_blue);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.gameover);
+            }
+        });
+
+        Button btn4 = (Button)findViewById(R.id.button_brown);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.gameover);
+            }
+        });
+
+        Button btn5 = (Button)findViewById(R.id.button_green);
+        btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setContentView(R.layout.gameover);
