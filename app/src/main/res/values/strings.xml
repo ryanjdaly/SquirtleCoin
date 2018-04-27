@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">SquirtleCoin</string>
     <string name="login_">Login</string>
-    <string name="login_user">Enter Username:</string>
-    <string name="login_password">Enter Password:</string>
+    <string name="login_user">Username</string>
+    <string name="login_password">Password</string>
     <string name="new_user">Add User</string>
+    <string name="login_reader">Login Reader</string>
     <string name="yellow">Yellow</string>
     <string name="game_over">GAME OVER</string>
     <string name="red">Red</string>

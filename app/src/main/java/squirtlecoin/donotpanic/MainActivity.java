@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import static squirtlecoin.donotpanic.R.id.button_login;
 
@@ -31,12 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = (Button)findViewById(R.id.button_login);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, GameActivity.class));
-            }
-        });
     }
 
     // Functions
@@ -48,11 +43,19 @@ public class MainActivity extends AppCompatActivity {
         String name = inputText.getText().toString();
         inputText = findViewById(R.id.password);
         String pw = inputText.getText().toString();
-        if(dbHelper.playerExists(db, name, pw)){
-            // Login
+        Toast toast = new Toast(getApplicationContext());
+        if(!name.isEmpty() && !pw.isEmpty()) {
+            if(dbHelper.playerExists(db, name, pw)){
+                startActivity(new Intent(MainActivity.this, GameActivity.class));
+            }
+            else{
+                toast = Toast.makeText(getApplicationContext(),"Incorrect username or password.  Have you created an account yet?",Toast.LENGTH_LONG);
+                toast.show();
+            }
         }
-        else{
-            // Reject Login Attempt
+        else {
+            toast = Toast.makeText(getApplicationContext(), "Please enter a username and password", Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 
@@ -71,8 +74,5 @@ public class MainActivity extends AppCompatActivity {
             values.put(DBContract.PlayerEntry.COLUMN_TOPSCORE, 0);
             db.insert(DBContract.PlayerEntry.TABLE_NAME, null, values);
         }
-
     }
-
-
 }

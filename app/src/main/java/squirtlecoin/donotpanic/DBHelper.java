@@ -46,20 +46,22 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query(
                 DBContract.PlayerEntry.TABLE_NAME,
                 new String[]{DBContract.PlayerEntry.COLUMN_PLAYERID},
-                DBContract.PlayerEntry.COLUMN_USERNAME + " = " + username,
-                null, null,null, null);
-        if(cursor == null)
+                DBContract.PlayerEntry.COLUMN_USERNAME + " = ?",
+                new String[]{username}, null,null, null);
+        if (cursor.getCount() == 0) {
             return false;
+        }
         return true;
     }
     public boolean playerExists(SQLiteDatabase db, String username, String password) {
         Cursor cursor = db.query(
                 DBContract.PlayerEntry.TABLE_NAME,
                 new String[]{DBContract.PlayerEntry.COLUMN_PLAYERID},
-                DBContract.PlayerEntry.COLUMN_USERNAME + " = " + username + " AND " + DBContract.PlayerEntry.COLUMN_PASSWORD + " = " + password,
-                null, null,null, null);
-        if(cursor == null)
+                DBContract.PlayerEntry.COLUMN_USERNAME + " = ? AND " + DBContract.PlayerEntry.COLUMN_PASSWORD + " = ?",
+                new String[]{username, password}, null,null, null);
+        if (cursor.getCount() == 0) {
             return false;
+        }
         return true;
     }
 
