@@ -59,6 +59,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public void attemptLogin2(View view) {
+        inputText = findViewById(R.id.username);
+        String name = inputText.getText().toString();
+        inputText = findViewById(R.id.password);
+        String pw = inputText.getText().toString();
+        Toast toast = new Toast(getApplicationContext());
+        if(!name.isEmpty() && !pw.isEmpty()) {
+            if(dbHelper.playerExists(db, name, pw)){
+                setContentView(R.layout.instructions);
+            }
+            else{
+                toast = Toast.makeText(getApplicationContext(),"Incorrect username or password.  Have you created an account yet?",Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+        else {
+            toast = Toast.makeText(getApplicationContext(), "Please enter a username and password", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
     public void addUser(View view) {
         inputText = findViewById(R.id.username);
         String name = inputText.getText().toString();
