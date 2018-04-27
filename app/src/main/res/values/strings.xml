@@ -8,4 +8,8 @@
     <string name="yellow">Yellow</string>
     <string name="game_over">GAME OVER</string>
     <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="brown">Brown</string>
+    <string name="user_type">V Speaker  Diffuser V</string>
 </resources>
