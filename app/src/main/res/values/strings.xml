@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SquirtleCoin</string>
+    <string name="app_name">Panic Button</string>
     <string name="login_">Login</string>
     <string name="login_user">Username</string>
     <string name="login_password">Password</string>
@@ -13,6 +13,7 @@
     <string name="brown">Brown</string>
     <string name="user_type">V Speaker  Diffuser V</string>
     <string name="user_win">Bomb Defused!</string>
+    <string name="binary_code">10100</string>
 
     <string name="instructions">You are given a 5 digit number, examine your number and perform the task that corresponds with your number.
 Here are instructions on how to convert your binary number in to decimal form.

@@ -2,7 +2,6 @@ package squirtlecoin.donotpanic;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.util.Random;
 
 import static squirtlecoin.donotpanic.R.id.button_login;
 
@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     EditText inputText;
     DBHelper dbHelper;
     SQLiteDatabase db;
-
     // Constructors
 
     @Override
@@ -60,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     public void attemptLogin2(View view) {
         inputText = findViewById(R.id.username);
         String name = inputText.getText().toString();
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = new Toast(getApplicationContext());
         if(!name.isEmpty() && !pw.isEmpty()) {
             if(dbHelper.playerExists(db, name, pw)){
-                setContentView(R.layout.instructions);
+                startActivity(new Intent(MainActivity.this, Instructions.class));
             }
             else{
                 toast = Toast.makeText(getApplicationContext(),"Incorrect username or password.  Have you created an account yet?",Toast.LENGTH_LONG);
@@ -86,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
         String name = inputText.getText().toString();
         inputText = findViewById(R.id.password);
         String pw = inputText.getText().toString();
-        int id = 3;
+        Random r = new Random();
+        int id = r.nextInt();
         if(!dbHelper.playerExists(db, name)){
             ContentValues values = new ContentValues();
             values.put(DBContract.PlayerEntry.COLUMN_PLAYERID, id);
@@ -95,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
             values.put(DBContract.PlayerEntry.COLUMN_PLAYTIME, 0);
             values.put(DBContract.PlayerEntry.COLUMN_TOPSCORE, 0);
             db.insert(DBContract.PlayerEntry.TABLE_NAME, null, values);
+        }
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Username already exists!", Toast.LENGTH_SHORT);
         }
     }
 }

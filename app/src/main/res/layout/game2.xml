@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity2">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="380dp"
+        android:layout_height="134dp"
+        android:autoText="false"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="monospace"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:text="@string/binary_code" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"

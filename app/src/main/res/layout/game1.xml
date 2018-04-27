@@ -64,4 +64,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_red" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="380dp"
+        android:layout_height="134dp"
+        android:autoText="false"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="monospace"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:text="@string/binary_code" />
 </android.support.constraint.ConstraintLayout>
